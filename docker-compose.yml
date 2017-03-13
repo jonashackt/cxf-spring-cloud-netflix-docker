@@ -1,0 +1,31 @@
+version: '2'
+
+services:
+ eureka-serviceregistry:
+  build: ./web
+  ports:
+   - "80:80"
+  depends_on:
+   - db
+  tty:
+    true
+ weatherbackend:
+  build: ./weatherbackend
+  expose:
+   - "1433"
+  tty:
+    true
+ zuul-edgeservice:
+  build: ./zuul-edgeservice
+  ports:
+   - "80:80"
+  depends_on:
+   - db
+  tty:
+    true
+
+
+networks:
+ default:
+  external:
+   name: "nat"

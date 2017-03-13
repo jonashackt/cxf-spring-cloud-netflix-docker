@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: zuul-edgeservice
+
+zuul:
+  prefix: /api
+  ignoredServices: '*'
+  routes:
+    weatherbackend: /weatherbackend/**
+
+# Switch Eureka-Usage on & off
+ribbon:
+  eureka:
+    enabled: enabled
+
+# Increase the Hystrix timeout to 60s (globally)
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
