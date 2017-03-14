@@ -1,26 +1,24 @@
-version: '2'
+version: '2.1'
 
 services:
  eureka-serviceregistry:
-  build: ./web
+  build: ./eureka-serviceregistry
   ports:
-   - "80:80"
-  depends_on:
-   - db
+   - "8761:8761"
   tty:
     true
  weatherbackend:
   build: ./weatherbackend
-  expose:
-   - "1433"
+  ports:
+   - "8090:8090"
   tty:
     true
  zuul-edgeservice:
   build: ./zuul-edgeservice
   ports:
-   - "80:80"
+   - "8080:8080"
   depends_on:
-   - db
+   - eureka-serviceregistry
   tty:
     true
 
