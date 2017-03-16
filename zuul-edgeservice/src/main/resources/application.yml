@@ -23,7 +23,7 @@ logging:
   level:
     com:
       netflix:
-        discovery: DEBUG
+        discovery: ERROR
 
 
 # Increase the Hystrix timeout to 60s (globally)
