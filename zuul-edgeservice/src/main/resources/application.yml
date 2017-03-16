@@ -1,10 +1,6 @@
 server:
   port: 8080
 
-spring:
-  application:
-    name: zuul-edgeservice
-
 zuul:
   prefix: /api
   ignoredServices: '*'
@@ -15,6 +11,20 @@ zuul:
 ribbon:
   eureka:
     enabled: enabled
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${registry.host:localhost}:${registry.port:8761}/eureka/
+    healthcheck:
+      enabled: true
+
+logging:
+  level:
+    com:
+      netflix:
+        discovery: DEBUG
+
 
 # Increase the Hystrix timeout to 60s (globally)
 hystrix:
