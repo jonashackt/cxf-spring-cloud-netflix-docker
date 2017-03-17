@@ -12,9 +12,6 @@ services:
   build: ./weatherbackend
   ports:
    - "8090:8090"
-  environment:
-   - "REGISTRY_HOST=eureka-serviceregistry"
-   - "REGISTRY_PORT=8761"
   tty:
     true
  zuul-edgeservice:
@@ -23,12 +20,8 @@ services:
    - "8080:8080"
   depends_on:
    - eureka-serviceregistry
-  environment:
-   - "REGISTRY_HOST=eureka-serviceregistry"
-   - "REGISTRY_PORT=8761"
   tty:
     true
-
 
 networks:
  default:
