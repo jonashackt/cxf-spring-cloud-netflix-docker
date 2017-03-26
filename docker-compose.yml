@@ -2,24 +2,30 @@
 version: '3.1'
 
 services:
+
  eureka-serviceregistry:
   build: ./eureka-serviceregistry
   ports:
    - "8761:8761"
   tty:
     true
+
+ # no portbinding here - the actual services should be accessible through Zuul proxy
  weatherbackend:
   build: ./weatherbackend
-  ports:
-   - "8090:8090"
   tty:
     true
+
+ # no portbinding here - the actual services should be accessible through Zuul proxy
+ weatherbackend-second:
+  build: ./weatherbackend-second
+  tty:
+    true
+
  zuul-edgeservice:
   build: ./zuul-edgeservice
   ports:
    - "8080:8080"
-  depends_on:
-   - eureka-serviceregistry
   tty:
     true
 
