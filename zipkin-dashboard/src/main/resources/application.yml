@@ -1,5 +1,10 @@
+spring:
+  application:
+    # sets the name in Eureka
+    name: zipkin-dashboard
+
 server:
-  port: 9411
+  port: 9412
 
 eureka:
   client:
@@ -13,3 +18,8 @@ logging:
     com:
       netflix:
         discovery: ERROR
+
+# see all actuator data
+management:
+  security:
+    enabled: false

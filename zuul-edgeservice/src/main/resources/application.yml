@@ -25,15 +25,17 @@ eureka:
       enabled: true
 
 spring:
+  application:
+    # sets the name in Eureka & Zipkin
+    name: zuul-edgeservice
   zipkin:
-    baseUrl: http://${zipkin.host:localhost}:9411/
+    baseUrl: http://${zipkin.host:localhost}:9412/
 
 logging:
   level:
     com:
       netflix:
         discovery: ERROR
-
 
 # Increase the Hystrix timeout to 60s (globally)
 hystrix:
@@ -43,3 +45,8 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 60000
+
+# see all actuator data
+management:
+  security:
+    enabled: false

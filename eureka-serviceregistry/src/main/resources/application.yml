@@ -11,8 +11,11 @@ eureka:
       defaultZone: http://eureka-serviceregistry:${server.port}/eureka/
 
 spring:
+  application:
+    # sets the name in Eureka
+    name: eureka-serviceregistry
   zipkin:
-    baseUrl: http://${zipkin.host:localhost}:9411/
+    baseUrl: http://${zipkin.host:localhost}:9412/
 
 logging:
   level:
@@ -20,3 +23,8 @@ logging:
       netflix:
         eureka: OFF
         discovery: OFF
+
+# see all actuator data
+management:
+  security:
+    enabled: false
