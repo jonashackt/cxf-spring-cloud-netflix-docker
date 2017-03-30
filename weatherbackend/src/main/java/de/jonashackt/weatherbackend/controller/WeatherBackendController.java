@@ -20,16 +20,19 @@ public class WeatherBackendController {
     @RequestMapping(path = "/general/outlook", method=RequestMethod.POST, produces="application/json")
     @ResponseStatus(HttpStatus.OK)
     public @ResponseBody GeneralOutlook generateGeneralOutlook(@RequestBody Weather weather) throws JsonProcessingException {
-        LOG.info("Called Backend");
+        LOG.info("Request for /general/outlook with POST");
         /*
          * Some incredible Businesslogic...
          */
+        LOG.info("Called Backend");
         return IncredibleLogic.generateGeneralOutlook();
     }
 
     @RequestMapping(path = "/general/outlook", method=RequestMethod.GET, produces="application/json")
     @ResponseStatus(HttpStatus.OK)
     public @ResponseBody String infoAboutGeneralOutlook() throws JsonProcessingException {
+        LOG.info("Request for /general/outlook with GET");
+
         Weather weather = new Weather();
         weather.setFlagColor("blue");
         weather.setPostalCode("99425");
@@ -44,6 +47,7 @@ public class WeatherBackendController {
 
     @RequestMapping(value = "/{name}", method = RequestMethod.GET, produces = "text/plain")
     public String whatsTheSenseInThat(@PathVariable("name") String name) {
+        LOG.info("Request for /{name} with GET");
         return "Hello " + name + "! This is a RESTful HttpService written in Spring. Try to use some other HTTP verbs (don´t say 'methods' :P ) :)";
     }
 }
