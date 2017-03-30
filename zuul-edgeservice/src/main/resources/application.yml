@@ -13,9 +13,9 @@ ribbon:
     enabled: enabled
   # see http://stackoverflow.com/questions/32113671/zuulproxy-fails-with-ribboncommand-timed-out-and-no-fallback-available-when-it
   # Connect timeout used by Apache HttpClient
-  ConnectTimeout: 3000
+  ConnectTimeout: 60000
   # Read timeout used by Apache HttpClient
-  ReadTimeout: 5000
+  ReadTimeout: 60000
 
 eureka:
   client:
