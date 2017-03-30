@@ -10,6 +10,10 @@ eureka:
     serviceUrl:
       defaultZone: http://eureka-serviceregistry:${server.port}/eureka/
 
+spring:
+  zipkin:
+    baseUrl: http://${zipkin.host:localhost}:9411/
+
 logging:
   level:
     com:

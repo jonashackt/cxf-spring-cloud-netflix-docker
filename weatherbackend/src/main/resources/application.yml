@@ -8,6 +8,10 @@ eureka:
     healthcheck:
       enabled: true
 
+spring:
+  zipkin:
+    baseUrl: http://${zipkin.host:localhost}:9411/
+
 logging:
   level:
     com:
