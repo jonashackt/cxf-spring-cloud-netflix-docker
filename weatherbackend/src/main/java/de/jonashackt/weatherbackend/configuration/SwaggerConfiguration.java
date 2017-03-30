@@ -1,4 +1,4 @@
-package de.jonashackt.edge.weatherbackend.configuration;
+package de.jonashackt.weatherbackend.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

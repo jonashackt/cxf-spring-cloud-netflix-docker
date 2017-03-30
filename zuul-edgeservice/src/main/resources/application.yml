@@ -3,6 +3,9 @@ server:
 
 zuul:
   prefix: /api
+  host:
+    connect-timeout-millis: 20000
+    socket-timeout-millis: 20000
 
 # Switch Eureka-Usage on & off
 ribbon:

@@ -1,4 +1,4 @@
-package de.jonashackt.edge.weatherbackend.controller;
+package de.jonashackt.weatherbackend.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import de.codecentric.soap.internalmodel.*;

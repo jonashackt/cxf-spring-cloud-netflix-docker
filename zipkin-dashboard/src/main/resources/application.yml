@@ -1,0 +1,15 @@
+server:
+  port: 9411
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${registry.host:localhost}:${registry.port:8761}/eureka/
+    healthcheck:
+      enabled: true
+
+logging:
+  level:
+    com:
+      netflix:
+        discovery: ERROR
