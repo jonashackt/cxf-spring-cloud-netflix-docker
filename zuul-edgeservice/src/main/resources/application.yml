@@ -1,21 +1,20 @@
+spring:
+  application:
+    # sets the name in Eureka & Zipkin
+    name: zuul-edgeservice
+  zipkin:
+    baseUrl: http://${zipkin.host:localhost}:9411/
+
 server:
   port: 8080
 
 zuul:
   prefix: /api
-  host:
-    connect-timeout-millis: 20000
-    socket-timeout-millis: 20000
 
 # Switch Eureka-Usage on & off
 ribbon:
   eureka:
     enabled: enabled
-  # see http://stackoverflow.com/questions/32113671/zuulproxy-fails-with-ribboncommand-timed-out-and-no-fallback-available-when-it
-  # Connect timeout used by Apache HttpClient
-  ConnectTimeout: 60000
-  # Read timeout used by Apache HttpClient
-  ReadTimeout: 60000
 
 eureka:
   client:
@@ -23,13 +22,6 @@ eureka:
       defaultZone: http://${registry.host:localhost}:${registry.port:8761}/eureka/
     healthcheck:
       enabled: true
-
-spring:
-  application:
-    # sets the name in Eureka & Zipkin
-    name: zuul-edgeservice
-  zipkin:
-    baseUrl: http://${zipkin.host:localhost}:9412/
 
 logging:
   level:
@@ -45,8 +37,3 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 60000
-
-# see all actuator data
-management:
-  security:
-    enabled: false

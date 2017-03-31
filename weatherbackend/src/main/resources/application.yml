@@ -1,3 +1,10 @@
+spring:
+  application:
+    # sets the name in Eureka & Zipkin
+    name: ${springboot.app.name:weatherbackend}
+  zipkin:
+    baseUrl: http://${zipkin.host:localhost}:9411/
+
 server:
   port: 8090
 
@@ -8,20 +15,8 @@ eureka:
     healthcheck:
       enabled: true
 
-spring:
-  application:
-    # sets the name in Eureka & Zipkin
-    name: ${springboot.app.name:weatherbackend}
-  zipkin:
-    baseUrl: http://${zipkin.host:localhost}:9412/
-
 logging:
   level:
     com:
       netflix:
         discovery: ERROR
-
-# see all actuator data
-management:
-  security:
-    enabled: false
