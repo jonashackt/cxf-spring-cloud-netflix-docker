@@ -32,7 +32,7 @@ hystrix:
           thread:
             timeoutInMilliseconds: 60000
 
-# No ugly logging polution, if Eureka isn´t up or found
+# No ugly logging pollution, if Eureka isn´t up or found
 logging:
   level:
     com:
