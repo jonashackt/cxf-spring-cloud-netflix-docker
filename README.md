@@ -4,6 +4,10 @@ Example project combining Spring Boot apps together with Spring Cloud Netflix &a
 
 ### Links
 
+http://projects.spring.io/spring-cloud/
+
+http://cloud.spring.io/spring-cloud-static/Dalston.RELEASE/
+
 https://github.com/sqshq/PiggyMetrics
 
 https://github.com/kbastani/spring-cloud-microservice-example
