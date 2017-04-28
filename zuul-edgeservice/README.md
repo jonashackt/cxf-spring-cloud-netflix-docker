@@ -12,3 +12,6 @@ If you use the weatherbackend and have
 running with it, just try this edgeservice and type
 
 [http://localhost:8080/api/weatherbackend/weather/general/outlook](http://localhost:8080/api/weatherbackend/weather/general/outlook)
+
+
+See all dynamically configured routes here http://localhost:8080/routes
