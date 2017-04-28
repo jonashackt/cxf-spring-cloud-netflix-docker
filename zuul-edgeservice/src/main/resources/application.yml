@@ -11,6 +11,11 @@ server:
 zuul:
   prefix: /api
 
+# to retrieve all configured Zuul routes at the /routes endpoint, we have to disable spring.boot.actuator´s authentication requirement
+management:
+  security:
+    enabled: false
+
 # Switch Eureka-Usage on & off
 ribbon:
   eureka:
