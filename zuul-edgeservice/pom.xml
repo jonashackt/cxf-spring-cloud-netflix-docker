@@ -13,17 +13,15 @@
 		<relativePath>../</relativePath>
 	</parent>
 
+	<properties>
+		<springfox.version>2.6.1</springfox.version>
+	</properties>
+
 	<dependencies>
 		<!-- Zuul -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-zuul</artifactId>
-		</dependency>
-
-		<!-- Actuator endpoints -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 
 		<!-- Eureka connectivity -->
@@ -42,6 +40,20 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-zipkin</artifactId>
 		</dependency>
+
+		<!-- Swaggerfox REST Live Docu -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>${springfox.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>${springfox.version}</version>
+		</dependency>
+
 
 		<!-- Testing -->
 		<dependency>
