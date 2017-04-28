@@ -4,6 +4,10 @@ spring:
     name: zuul-edgeservice
   zipkin:
     baseUrl: http://${zipkin.host:localhost}:9411/
+  # show the /routes output in a formatted (prettier) way
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
 
 server:
   port: 8080
