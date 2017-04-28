@@ -15,8 +15,10 @@ eureka:
     healthcheck:
       enabled: true
 
+# No ugly logging polution, if Eureka isn´t up or found
 logging:
   level:
     com:
       netflix:
-        discovery: ERROR
+        eureka: OFF
+        discovery: OFF

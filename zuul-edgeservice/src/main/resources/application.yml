@@ -23,12 +23,6 @@ eureka:
     healthcheck:
       enabled: true
 
-logging:
-  level:
-    com:
-      netflix:
-        discovery: ERROR
-
 # Increase the Hystrix timeout to 60s (globally)
 hystrix:
   command:
@@ -37,3 +31,11 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 60000
+
+# No ugly logging polution, if Eureka isn´t up or found
+logging:
+  level:
+    com:
+      netflix:
+        eureka: OFF
+        discovery: OFF
