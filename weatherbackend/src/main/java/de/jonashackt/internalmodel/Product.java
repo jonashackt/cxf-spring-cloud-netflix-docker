@@ -1,4 +1,4 @@
-package de.codecentric.soap.internalmodel;
+package de.jonashackt.internalmodel;
 
 public enum Product {
 

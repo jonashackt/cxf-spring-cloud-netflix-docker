@@ -1,9 +1,9 @@
-package de.codecentric.soap.businesslogic;
+package de.jonashackt.businesslogic;
 
 import java.time.Instant;
 import java.util.Date;
 
-import de.codecentric.soap.internalmodel.GeneralOutlook;
+import de.jonashackt.internalmodel.GeneralOutlook;
 
 public class IncredibleLogic {
 

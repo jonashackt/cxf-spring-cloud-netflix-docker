@@ -36,6 +36,7 @@
 		<module>eureka-serviceregistry</module>
 		<module>zuul-edgeservice</module>
 		<module>weatherbackend</module>
+		<module>weatherservice</module>
 		<module>zipkin-dashboard</module>
 	</modules>
 

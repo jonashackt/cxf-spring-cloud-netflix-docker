@@ -1,7 +1,7 @@
 package de.jonashackt.weatherbackend.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import de.codecentric.soap.internalmodel.*;
+import de.jonashackt.internalmodel.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
-import de.codecentric.soap.businesslogic.IncredibleLogic;
+import de.jonashackt.businesslogic.IncredibleLogic;
 
 @RestController
 @RequestMapping("/weather")
@@ -19,7 +19,8 @@ public class WeatherBackendController {
 
     @RequestMapping(path = "/general/outlook", method=RequestMethod.POST, produces="application/json")
     @ResponseStatus(HttpStatus.OK)
-    public @ResponseBody GeneralOutlook generateGeneralOutlook(@RequestBody Weather weather) throws JsonProcessingException {
+    public @ResponseBody
+    GeneralOutlook generateGeneralOutlook(@RequestBody Weather weather) throws JsonProcessingException {
         LOG.info("Request for /general/outlook with POST");
         /*
          * Some incredible Businesslogic...

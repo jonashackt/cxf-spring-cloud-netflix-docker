@@ -1,0 +1,36 @@
+spring:
+  application:
+    # sets the name in Eureka & Zipkin
+    name: ${springboot.app.name:weatherservice}
+  zipkin:
+    baseUrl: http://${zipkin.host:localhost}:9411/
+
+server:
+  port: 8095
+
+soap:
+  service:
+    base:
+      url: /weatherservice
+  messages:
+    logging: true
+    extract: true
+
+cxf:
+  servicelist:
+    title: WeatherService - Shine baby, shine!
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${registry.host:localhost}:${registry.port:8761}/eureka/
+    healthcheck:
+      enabled: true
+
+# No ugly logging pollution, if Eureka isn´t up or found
+logging:
+  level:
+    com:
+      netflix:
+        eureka: OFF
+        discovery: OFF
