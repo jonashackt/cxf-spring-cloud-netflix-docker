@@ -4,7 +4,7 @@
 	<groupId>de.jonashackt.weatherbackend</groupId>
 	<artifactId>weatherbackend</artifactId>
 	<packaging>jar</packaging>
-	<description>Demo project for playing around with REST in Spring Boot</description>
+	<description>Demo backend providing some demo weather services</description>
 
 	<parent>
 		<groupId>de.jonashackt</groupId>
@@ -16,7 +16,8 @@
 	<properties>
 		<springfox.version>2.6.1</springfox.version>
 		<rest-assured.version>3.0.2</rest-assured.version>
-		<unirest-java.version>1.4.9</unirest-java.version>
+		<commons-io.version>2.5</commons-io.version>
+		<pdfbox.version>2.0.5</pdfbox.version>
 	</properties>
 
 	<dependencies>
@@ -24,6 +25,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons-io.version}</version>
 		</dependency>
 
 		<!-- Actuator endpoints -->
@@ -84,9 +91,9 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.mashape.unirest</groupId>
-			<artifactId>unirest-java</artifactId>
-			<version>${unirest-java.version}</version>
+			<groupId>org.apache.pdfbox</groupId>
+			<artifactId>pdfbox</artifactId>
+			<version>${pdfbox.version}</version>
 			<scope>test</scope>
 		</dependency>
 

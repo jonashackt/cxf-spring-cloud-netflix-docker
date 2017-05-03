@@ -1,23 +1,19 @@
 package de.jonashackt.weatherbackend;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.ObjectMapper;
-import com.mashape.unirest.http.Unirest;
-import com.mashape.unirest.http.exceptions.UnirestException;
 import de.jonashackt.businesslogic.IncredibleLogic;
 import de.jonashackt.internalmodel.GeneralOutlook;
 import de.jonashackt.internalmodel.Product;
 import de.jonashackt.internalmodel.Weather;
 import io.restassured.http.ContentType;
 import org.apache.http.HttpStatus;
-import org.junit.Before;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.text.PDFTextStripper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
 import static io.restassured.RestAssured.given;
@@ -40,9 +36,7 @@ public class WeatherBackendApplicationTests {
 	    weather.setFlagColor("blue");
 	    weather.setPostalCode("99425");
 	    weather.setProduct(Product.ForecastBasic);
-	    
-	    
-	    
+
 	    given() // can be ommited when GET only
 	        .contentType(ContentType.JSON)
             .body(weather)
@@ -61,62 +55,40 @@ public class WeatherBackendApplicationTests {
 	    assertEquals("Weimar", outlook.getCity());
     }
 
-	@Test
-	public void testWithUniRest() throws Exception {
+    @Test
+    public void getWeatherInformationPdf_should_return_correct_Pdf() throws IOException {
 
-	    httpGetWithSimpleUrlParameter();
+        byte[] pdf = given()
+                        .contentType(ContentType.JSON)
+                        .pathParam("zip", "99425")
+                    .when()
+                        .get("http://localhost:8080/weather/general/outlook/{zip}")
+                    .then()
+                        .statusCode(HttpStatus.SC_OK).extract().asByteArray();
 
-        httpPostWithObjectInAndOutMapping();
-	}
+        String textInPdf = extractPdfText(pdf);
+        assertThat(textInPdf, containsString("Weather in your city"));
+        assertThat(textInPdf, containsString("Weimar"));
+        assertThat(textInPdf, containsString("18.1"));
+        assertThat(textInPdf, containsString("Wind Gentle Breeze 3.6 m/s"));
+        assertThat(textInPdf, containsString("West-southwest"));
+        assertThat(textInPdf, containsString("Cloudiness scattered clouds"));
+        assertThat(textInPdf, containsString("Pressure 1018 hpa"));
+        assertThat(textInPdf, containsString("Humidity 55 %"));
+        assertThat(textInPdf, containsString("Sunrise 23:30"));
+        assertThat(textInPdf, containsString("Sunset 13:1"));
 
-    private void httpGetWithSimpleUrlParameter() throws UnirestException {
-        String name = "Paul";
-
-        HttpResponse<String> greeting = Unirest.get("http://localhost:8080/weather/{name}").header("accept", "text/plain").routeParam("name", name).asObject(String.class);
-
-        assertThat(greeting.getBody(), containsString(" This is a RESTful HttpService written in Spring"));
     }
 
-    private void httpPostWithObjectInAndOutMapping() throws com.mashape.unirest.http.exceptions.UnirestException {
-        Weather weather = new Weather();
-        weather.setFlagColor("blue");
-        weather.setPostalCode("99425");
-        weather.setProduct(Product.ForecastBasic);
-
-        HttpResponse<GeneralOutlook> generalOutlookHttpResponse = Unirest.post("http://localhost:8080/weather/general/outlook")
-                .header("accept", "application/json")
-                .header("Content-Type", "application/json")
-                .body(weather)
-                .asObject(GeneralOutlook.class);
-
-        assertEquals("Weimar", generalOutlookHttpResponse.getBody().getCity());
-    }
-
-    @Before
-    public void setUp() {
-        // Configure your wanted ObjectMapper, here we take jackson :)
-        Unirest.setObjectMapper(new ObjectMapper() {
-            private com.fasterxml.jackson.databind.ObjectMapper jacksonObjectMapper
-                    = new com.fasterxml.jackson.databind.ObjectMapper();
-
-            public <T> T readValue(String value, Class<T> valueType) {
-                try {
-                    jacksonObjectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-                    return jacksonObjectMapper.readValue(value, valueType);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-
-            public String writeValue(Object value) {
-                try {
-                    jacksonObjectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-                    return jacksonObjectMapper.writeValueAsString(value);
-                } catch (JsonProcessingException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        });
-
+    /**
+     * Extracts all the Text inside a Pdf
+     */
+    private static String extractPdfText(byte[] pdfData) throws IOException {
+        PDDocument pdfDocument = PDDocument.load(new ByteArrayInputStream(pdfData));
+        try {
+            return new PDFTextStripper().getText(pdfDocument);
+        } finally {
+            pdfDocument.close();
+        }
     }
 }

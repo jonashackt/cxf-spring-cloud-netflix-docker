@@ -1,15 +1,18 @@
 package de.jonashackt.weatherbackend.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import de.jonashackt.businesslogic.IncredibleLogic;
 import de.jonashackt.internalmodel.*;
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-
-import de.jonashackt.businesslogic.IncredibleLogic;
+import java.io.IOException;
 
 @RestController
 @RequestMapping("/weather")
@@ -17,10 +20,12 @@ public class WeatherBackendController {
 
     private static final Logger LOG = LoggerFactory.getLogger(WeatherBackendController.class);
 
+    @Value(value="classpath:responses/forecast.pdf")
+    private Resource forecastPdf;
+
     @RequestMapping(path = "/general/outlook", method=RequestMethod.POST, produces="application/json")
     @ResponseStatus(HttpStatus.OK)
-    public @ResponseBody
-    GeneralOutlook generateGeneralOutlook(@RequestBody Weather weather) throws JsonProcessingException {
+    public @ResponseBody GeneralOutlook generateGeneralOutlook(@RequestBody Weather weather) throws JsonProcessingException {
         LOG.info("Request for /general/outlook with POST");
         /*
          * Some incredible Businesslogic...
@@ -50,5 +55,13 @@ public class WeatherBackendController {
     public String whatsTheSenseInThat(@PathVariable("name") String name) {
         LOG.info("Request for /{name} with GET");
         return "Hello " + name + "! This is a RESTful HttpService written in Spring. Try to use some other HTTP verbs (don´t say 'methods' :P ) :)";
+    }
+
+    @RequestMapping(path = "/general/outlook/{zip}", method=RequestMethod.GET, produces="application/pdf")
+    @ResponseStatus(HttpStatus.OK)
+    public byte[] getWeatherInformationPdf(@PathVariable("zip") String zip) throws IOException {
+        LOG.info("Request for /general/outlook/{zip} with GET");
+
+        return IOUtils.toByteArray(forecastPdf.getInputStream());
     }
 }
