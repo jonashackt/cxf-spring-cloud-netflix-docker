@@ -1,5 +1,6 @@
-package de.jonashackt.weatherbackend;
+package de.jonashackt;
 
+import de.jonashackt.WeatherBackendApplication;
 import de.jonashackt.businesslogic.IncredibleLogic;
 import de.jonashackt.internalmodel.GeneralOutlook;
 import de.jonashackt.internalmodel.Product;

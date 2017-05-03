@@ -5,9 +5,6 @@
     <artifactId>weatherservice</artifactId>
     <packaging>jar</packaging>
 
-    <name>cxf-boot-simple</name>
-    <description>Demo project for using Spring Boot Starter CXF</description>
-
     <parent>
         <groupId>de.jonashackt</groupId>
         <artifactId>spring-cloud-netflix-docker-build-all</artifactId>

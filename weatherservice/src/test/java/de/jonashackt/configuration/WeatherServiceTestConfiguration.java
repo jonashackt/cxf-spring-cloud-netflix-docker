@@ -1,5 +1,6 @@
 package de.jonashackt.configuration;
 
+import de.jonashackt.adapter.WeatherBackendAdapter;
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -47,4 +48,10 @@ public class WeatherServiceTestConfiguration {
     
     @Autowired
     private CxfAutoConfiguration cxfAutoConfiguration;
+
+    @Bean
+    public WeatherBackendAdapter weatherBackendAdapter() {
+        // We want to prevent integration-testing the real REST services from weatherbackend and use the stub instead
+        return new WeatherBackendAdapterStub();
+    }
 }
