@@ -11,7 +11,7 @@ server:
 soap:
   service:
     base:
-      url: /weatherservice
+      url: /soap
   messages:
     logging: true
     extract: true
