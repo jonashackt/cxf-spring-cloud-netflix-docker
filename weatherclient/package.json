@@ -1,0 +1,30 @@
+{
+  "name": "spring-data-rest-and-reactjs",
+  "version": "0.1.0",
+  "description": "Just a simple Client for our Dockerized SOAP WebService powered by Spring Cloud",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jonashackt/cxf-spring-cloud-netflix-docker.git"
+  },
+  "keywords": [
+    "rest",
+    "spring",
+    "react"
+  ],
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "rest": "^1.3.1",
+    "webpack": "^1.12.2"
+  },
+  "scripts": {
+    "watch": "webpack --watch -d"
+  },
+  "devDependencies": {
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.7",
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0"
+  }
+}

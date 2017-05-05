@@ -1,10 +1,9 @@
 package de.jonashackt;
 
-import de.jonashackt.WeatherBackendApplication;
 import de.jonashackt.businesslogic.IncredibleLogic;
-import de.jonashackt.internalmodel.GeneralOutlook;
-import de.jonashackt.internalmodel.Product;
-import de.jonashackt.internalmodel.Weather;
+import de.jonashackt.model.GeneralOutlook;
+import de.jonashackt.model.Product;
+import de.jonashackt.model.Weather;
 import io.restassured.http.ContentType;
 import org.apache.http.HttpStatus;
 import org.apache.pdfbox.pdmodel.PDDocument;

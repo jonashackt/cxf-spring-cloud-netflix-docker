@@ -37,6 +37,7 @@
 		<module>zuul-edgeservice</module>
 		<module>weatherbackend</module>
 		<module>weatherservice</module>
+		<module>weatherclient</module>
 		<module>zipkin-dashboard</module>
 	</modules>
 

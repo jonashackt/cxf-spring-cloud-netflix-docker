@@ -1,4 +1,4 @@
-package de.jonashackt.internalmodel;
+package de.jonashackt.model;
 
 public enum MethodOfPayment {
 

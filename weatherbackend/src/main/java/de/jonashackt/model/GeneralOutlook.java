@@ -1,4 +1,4 @@
-package de.jonashackt.internalmodel;
+package de.jonashackt.model;
 
 import java.util.Date;
 

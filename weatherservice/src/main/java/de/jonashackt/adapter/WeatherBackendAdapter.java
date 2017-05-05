@@ -1,7 +1,7 @@
 package de.jonashackt.adapter;
 
-import de.jonashackt.internalmodel.GeneralOutlook;
-import de.jonashackt.internalmodel.Weather;
+import de.jonashackt.model.GeneralOutlook;
+import de.jonashackt.model.Weather;
 
 public interface WeatherBackendAdapter {
     GeneralOutlook generateGeneralOutlook(Weather weather);

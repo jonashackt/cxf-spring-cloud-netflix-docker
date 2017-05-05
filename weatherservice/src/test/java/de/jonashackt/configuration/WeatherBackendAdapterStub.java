@@ -1,8 +1,8 @@
 package de.jonashackt.configuration;
 
 import de.jonashackt.adapter.WeatherBackendAdapter;
-import de.jonashackt.internalmodel.GeneralOutlook;
-import de.jonashackt.internalmodel.Weather;
+import de.jonashackt.model.GeneralOutlook;
+import de.jonashackt.model.Weather;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;

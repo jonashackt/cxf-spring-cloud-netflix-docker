@@ -4,10 +4,10 @@ package de.jonashackt.transformation;
 import de.codecentric.namespace.weatherservice.datatypes.ProductName;
 import de.codecentric.namespace.weatherservice.general.ForecastCustomer;
 import de.codecentric.namespace.weatherservice.general.ForecastRequest;
-import de.jonashackt.internalmodel.MethodOfPayment;
-import de.jonashackt.internalmodel.Product;
-import de.jonashackt.internalmodel.User;
-import de.jonashackt.internalmodel.Weather;
+import de.jonashackt.model.MethodOfPayment;
+import de.jonashackt.model.Product;
+import de.jonashackt.model.User;
+import de.jonashackt.model.Weather;
 
 public final class GetCityForecastByZIPInMapper {
 

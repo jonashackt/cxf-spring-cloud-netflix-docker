@@ -1,7 +1,7 @@
 package de.jonashackt.transformation;
 
 import de.codecentric.namespace.weatherservice.general.WeatherReturn;
-import de.jonashackt.internalmodel.GeneralOutlook;
+import de.jonashackt.model.GeneralOutlook;
 
 public final class GetCityWeatherByZIPOutMapper {
 	

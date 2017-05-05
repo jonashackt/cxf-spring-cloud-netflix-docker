@@ -3,7 +3,7 @@ package de.jonashackt.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import de.jonashackt.businesslogic.IncredibleLogic;
-import de.jonashackt.internalmodel.*;
+import de.jonashackt.model.*;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

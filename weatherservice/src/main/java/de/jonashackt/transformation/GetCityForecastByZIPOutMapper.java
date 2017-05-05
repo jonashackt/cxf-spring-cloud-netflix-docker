@@ -6,7 +6,7 @@ import de.codecentric.namespace.weatherservice.datatypes.POP;
 import de.codecentric.namespace.weatherservice.datatypes.Temp;
 import de.codecentric.namespace.weatherservice.general.ForecastReturn;
 
-import de.jonashackt.internalmodel.GeneralOutlook;
+import de.jonashackt.model.GeneralOutlook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
