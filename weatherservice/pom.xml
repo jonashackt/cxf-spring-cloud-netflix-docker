@@ -27,6 +27,12 @@
             <version>${cxf-spring-boot-starter.version}</version>
         </dependency>
 
+        <!-- weatherbackend connectivity through Feign, Ribbon & Eureka -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-feign</artifactId>
+        </dependency>
+
         <!-- Eureka connectivity -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

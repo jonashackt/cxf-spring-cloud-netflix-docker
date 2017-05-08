@@ -20,6 +20,20 @@ cxf:
   servicelist:
     title: WeatherService - Shine baby, shine!
 
+# Switch Eureka-Usage on & off
+ribbon:
+  eureka:
+    enabled: enabled
+
+# Increase the Hystrix timeout to 60s (globally)
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+
 eureka:
   client:
     serviceUrl:
