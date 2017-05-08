@@ -24,7 +24,7 @@ public class WeatherclientApplicationTests {
 			.contentType(ContentType.JSON)
 			.pathParam("zip", "99425")
 		.when()
-			.get("http://localhost:8087/weather/forecast/{zip}")
+			.get("http://localhost:8087/forecast/{zip}")
 		.then()
 			.statusCode(HttpStatus.SC_OK);
 	}
