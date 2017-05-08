@@ -11,14 +11,14 @@ import static io.restassured.RestAssured.given;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(
-		classes = WeatherclientApplication.class,
+		classes = WeatherclientTestApplication.class,
 		webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT,
 		properties = {"server.port=8087"}
 )
-public class WeatherclientApplicationTests {
+public class WeatherclientTest {
 
-	@Test
-	public void retrieve_forecast_from_weatherservice() {
+	@Test public void
+	should_retrieve_forecast_from_weatherservice() {
 
 		given()
 			.contentType(ContentType.JSON)
