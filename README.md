@@ -11,6 +11,10 @@ Example:
 
 http://localhost:8080/api/weatherservice/soap
 
+### Usage
+
+There´s a Client application inside this project too, so you can fire requests to the weather-service with that one to - and it should be clear, how to implement a consumer :) For that, just fire up the [weatherclient](https://github.com/jonashackt/cxf-spring-cloud-netflix-docker/tree/master/weatherclient) - it should be right there after a `mvn clean package` ran inside the root directoy.
+
 
 ### Links
 

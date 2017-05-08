@@ -9,3 +9,7 @@ server:
 # Client only mode
 endpoint:
   autoinit: false
+
+weatherservice:
+  host: localhost
+  port: 8080
