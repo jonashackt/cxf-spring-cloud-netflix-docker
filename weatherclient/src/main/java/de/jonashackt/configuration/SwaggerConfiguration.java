@@ -20,7 +20,7 @@ public class SwaggerConfiguration {
 				.apiInfo(apiInfo())
 				.select()
 				.apis(RequestHandlerSelectors.any())
-				.paths(PathSelectors.ant("/forecast/*"))
+				.paths(PathSelectors.any())
 				.build();
 	}
 	
