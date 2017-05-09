@@ -3,7 +3,7 @@ Simple edge service using Spring Cloud Zuul
 
 Using the [Spring Cloud Netflix stack](http://cloud.spring.io/spring-cloud-netflix/spring-cloud-netflix.html)
 
-Fire up a backend service, like this one: https://github.com/jonashackt/weatherbackend and configure your routes inside the [application.properties](https://github.com/jonashackt/weatherbackend/blob/master/src/main/resources/application.properties).
+Fire up a backend service, like this one: https://github.com/jonashackt/weatherbackend and you don´t have to configure routes manually, this will be done for you with Eureka dynamically
 
 If you use the weatherbackend and have
 
