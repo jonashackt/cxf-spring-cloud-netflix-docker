@@ -13,12 +13,16 @@ services:
  # no portbinding here - the actual services should be accessible through Zuul proxy
  weatherbackend:
   build: ./weatherbackend
+  ports:
+   - "8090"
   tty:
     true
 
  # no portbinding here - the actual services should be accessible through Zuul proxy
- weatherbackend-second:
-  build: ./weatherbackend-second
+ weatherservice:
+  build: ./weatherservice
+  ports:
+   - "8095"
   tty:
     true
 
