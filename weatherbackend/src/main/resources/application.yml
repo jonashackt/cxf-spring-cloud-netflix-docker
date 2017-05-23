@@ -2,8 +2,6 @@ spring:
   application:
     # sets the name in Eureka & Zipkin
     name: ${springboot.app.name:weatherbackend}
-  zipkin:
-    baseUrl: http://${zipkin.host:localhost}:9411/
 
 server:
   port: 8090

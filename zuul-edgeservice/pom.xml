@@ -30,17 +30,6 @@
 			<artifactId>spring-cloud-starter-eureka</artifactId>
 		</dependency>
 
-		<!-- Tracing and Routevisibility -->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-sleuth-core</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-zipkin</artifactId>
-		</dependency>
-
 		<!-- Swaggerfox REST Live Docu -->
 		<dependency>
 			<groupId>io.springfox</groupId>
@@ -53,7 +42,6 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>${springfox.version}</version>
 		</dependency>
-
 
 		<!-- Testing -->
 		<dependency>

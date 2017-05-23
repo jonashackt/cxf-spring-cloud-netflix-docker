@@ -2,8 +2,6 @@ spring:
   application:
     # sets the name in Eureka & Zipkin
     name: zuul-edgeservice
-  zipkin:
-    baseUrl: http://${zipkin.host:localhost}:9411/
   # show the /routes output in a formatted (prettier) way
   jackson:
     serialization:
