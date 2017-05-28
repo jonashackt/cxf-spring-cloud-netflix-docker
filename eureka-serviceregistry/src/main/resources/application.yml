@@ -1,19 +1,19 @@
 spring:
   application:
     # sets the name in Eureka
-    name: eureka-serviceregistry
+    name: ${springboot.app.name:eureka-serviceregistry}
 
 server:
   port: 8761
 
 eureka:
   instance:
-    hostname: eureka-serviceregistry
+    hostname: ${springboot.app.name:eureka-serviceregistry}
   client:
     registerWithEureka: true
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://eureka-serviceregistry:${server.port}/eureka/
+      defaultZone: http://${registry.host:localhost}:${server.port}/eureka/
 
 logging:
   level:
