@@ -1,0 +1,16 @@
+version: '3.1'
+
+services:
+  weatherbackend:
+    build:
+      context: .
+    networks:
+      - web
+    labels:
+      - "traefik.backend=weatherbackend"
+      - "traefik.frontend.rule=Host:weatherbackend.docker.localhost"
+
+networks:
+  web:
+    external:
+      name: traefik_webgateway
