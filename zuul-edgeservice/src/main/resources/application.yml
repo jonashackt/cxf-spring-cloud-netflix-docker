@@ -22,6 +22,8 @@ management:
 ribbon:
   eureka:
     enabled: enabled
+  # receive Server list from Eureka every second
+  ServerListRefreshInterval: 1000
 
 eureka:
   client:
@@ -29,6 +31,16 @@ eureka:
       defaultZone: http://${registry.host:localhost}:${registry.port:8761}/eureka/
     healthcheck:
       enabled: true
+    # Zuul should always ask for instances at Eureka server and don´t cache them
+    fetchRegistry: false
+    # should imediately (1 sec) provide instance information changes
+    instance-info-replication-interval-seconds: 1
+  instance:
+    # highest possible rate to send heartbeats to Eureka server to indicate it´s still alive
+    # (needed because of the extreme fast lease-expiration-duration = 2 @ Eureka server)
+    lease-renewal-interval-in-seconds: 1
+    # instantly (2sec) remove non-available apps from eureka
+    lease-expiration-duration-in-seconds: 2
 
 # Increase the Hystrix timeout to 60s (globally)
 hystrix:

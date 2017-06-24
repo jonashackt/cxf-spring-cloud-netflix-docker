@@ -14,7 +14,7 @@ public class WeatherclientConfiguration {
     @Value("${weatherservice.host:localhost}")
     private String host;
 
-    @Value("${weatherservice.port:8080}")
+    @Value("${weatherservice.port:48080}")
     private String port;
 
     private final String urlending = "/api/weatherservice/soap/Weather";
