@@ -23,12 +23,17 @@ public class WeatherBackendAdapterImpl implements WeatherBackendAdapter {
     @Autowired
     private WeatherBackendClient weatherBackendClient;
 
-    private RestTemplate restTemplate = new RestTemplate();
-
     @Override
     public GeneralOutlook generateGeneralOutlook(Weather weather) {
         logCallerInfo();
         return weatherBackendClient.generateGeneralOutlook(weather);
+    }
+
+    @Override
+    public byte[] getWeatherInformationPdf(String zip) {
+        logCallerInfo();
+
+        return weatherBackendClient.getWeatherInformationPdf(zip);
     }
 
     private void logCallerInfo() {
@@ -38,12 +43,5 @@ public class WeatherBackendAdapterImpl implements WeatherBackendAdapter {
                 weatherbackendEurekaInfo.getPort(),
                 weatherbackendEurekaInfo.getStatus(),
                 weatherbackendEurekaInfo.getHomePageUrl()));
-    }
-
-    @Override
-    public byte[] getWeatherInformationPdf(String zip) {
-        logCallerInfo();
-
-        return weatherBackendClient.getWeatherInformationPdf(zip);
     }
 }
