@@ -11,7 +11,7 @@ import org.apache.pdfbox.text.PDFTextStripper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -21,7 +21,7 @@ import static org.hamcrest.Matchers.containsString;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
-@RunWith(SpringJUnit4ClassRunner.class)
+@RunWith(SpringRunner.class)
 @SpringBootTest(
         classes = WeatherBackendApplication.class,
         webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT,

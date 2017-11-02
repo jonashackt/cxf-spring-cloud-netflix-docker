@@ -1,4 +1,3 @@
-#jinja2: newline_sequence:'\r\n'
 version: '3.3'
 
 services:
@@ -12,11 +11,24 @@ services:
   restart:
     unless-stopped
 
+ spring-boot-admin:
+  build: ./spring-boot-admin
+  ports:
+   - "8092:8092"
+  environment:
+    - REGISTRY_HOST=eureka-serviceregistry
+  tty:
+    true
+  restart:
+    unless-stopped
+
  # no portbinding here - the actual services should be accessible through Zuul proxy
  weatherbackend:
   build: ./weatherbackend
   ports:
    - "8090"
+  environment:
+    - REGISTRY_HOST=eureka-serviceregistry
   tty:
     true
   restart:
@@ -27,6 +39,8 @@ services:
   build: ./weatherservice
   ports:
    - "8095"
+  environment:
+    - REGISTRY_HOST=eureka-serviceregistry
   tty:
     true
   restart:
@@ -36,12 +50,16 @@ services:
   build: ./zuul-edgeservice
   ports:
    - "8080:8080"
+  environment:
+    - REGISTRY_HOST=eureka-serviceregistry
   tty:
     true
   restart:
     unless-stopped
 
-networks:
- default:
-  external:
-   name: "nat"
+# "Windows Docker native"-specific configuration
+
+#networks:
+# default:
+#  external:
+#   name: "nat"
