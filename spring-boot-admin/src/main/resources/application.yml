@@ -1,0 +1,31 @@
+spring:
+  application:
+    # sets the name in Eureka & Zipkin
+    name: spring-boot-admin
+
+server:
+  port: 8092
+
+# Since Spring Boot 1.5.x all endpoints are secured by default,
+# we have to disable spring.boot.actuator´s authentication requirement
+management:
+  security:
+    enabled: false
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${registry.host:localhost}:${registry.port:8761}/eureka/
+    healthcheck:
+      enabled: true
+
+# Configure Spring Boot Admin
+spring.boot.admin.routes.endpoints: env,metrics,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,loggers,auditevents,hystrix.stream
+
+# No ugly logging pollution, if Eureka isn´t up or found
+logging:
+  level:
+    com:
+      netflix:
+        eureka: OFF
+        discovery: OFF
