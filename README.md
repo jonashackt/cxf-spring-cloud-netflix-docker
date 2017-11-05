@@ -12,6 +12,8 @@ It´s roughly structured like shown in this sketch:
 
 ### Usage
 
+As the whole example-application is Dockerized, just do a `docker-compose up -d` and all apps will be started for you. Run a `docker ps` to see what´s going on. Then enter http://localhost:8761/ to see all Services registering in Eureka.
+
 The zuul-edgeservice proxies weatherservice (by retrieving routes dynamically from eureka-serviceregistry) that itself calls weatherbackend
 
 Example: http://localhost:8080/api/weatherservice/soap
