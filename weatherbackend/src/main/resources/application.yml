@@ -13,6 +13,11 @@ eureka:
     healthcheck:
       enabled: true
 
+# Spring Boot Admin show something :)
+management:
+  security:
+    enabled: false
+
 # No ugly logging pollution, if Eureka isn´t up or found
 logging:
   level:
