@@ -31,6 +31,10 @@ public class WeatherBackendController {
          * Some incredible Businesslogic...
          */
         LOG.info("Called Backend");
+
+        ObjectMapper mapper = new ObjectMapper();
+        LOG.info("Object as JSON:" + mapper.writeValueAsString(weather));
+
         return IncredibleLogic.generateGeneralOutlook();
     }
 
@@ -42,7 +46,7 @@ public class WeatherBackendController {
         Weather weather = new Weather();
         weather.setFlagColor("blue");
         weather.setPostalCode("99425");
-        weather.setUser(new User(55, 5634500, MethodOfPayment.Bitcoin));
+        weather.addUser(new User(55, 5634500, MethodOfPayment.Bitcoin));
         weather.setProduct(Product.ForecastBasic);
 
         ObjectMapper mapper = new ObjectMapper();

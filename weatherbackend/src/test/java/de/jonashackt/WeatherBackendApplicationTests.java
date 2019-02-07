@@ -1,9 +1,7 @@
 package de.jonashackt;
 
 import de.jonashackt.businesslogic.IncredibleLogic;
-import de.jonashackt.model.GeneralOutlook;
-import de.jonashackt.model.Product;
-import de.jonashackt.model.Weather;
+import de.jonashackt.model.*;
 import io.restassured.http.ContentType;
 import org.apache.http.HttpStatus;
 import org.apache.pdfbox.pdmodel.PDDocument;
@@ -36,6 +34,9 @@ public class WeatherBackendApplicationTests {
 	    weather.setFlagColor("blue");
 	    weather.setPostalCode("99425");
 	    weather.setProduct(Product.ForecastBasic);
+        weather.addUser(new User(27, 4300, MethodOfPayment.Bitcoin));
+        weather.addUser(new User(45, 500300, MethodOfPayment.Paypal));
+        weather.addUser(new User(67, 60000300, MethodOfPayment.Paypal));
 
 	    given() // can be ommited when GET only
 	        .contentType(ContentType.JSON)

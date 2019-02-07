@@ -17,13 +17,14 @@ public class WeatherclientConfiguration {
     @Value("${weatherservice.port:8080}")
     private String port;
 
-    private final String urlending = "/api/weatherservice/soap/Weather";
+    @Value("${weatherservice.path")
+    private final String path = "/api/weatherservice/soap/Weather";
 
     @Bean
     public WeatherService weatherServiceClient() {
         JaxWsProxyFactoryBean jaxWsFactory = new JaxWsProxyFactoryBean();
         jaxWsFactory.setServiceClass(WeatherService.class);
-        jaxWsFactory.setAddress( "http://" + host + ":" + port + urlending);
+        jaxWsFactory.setAddress( "http://" + host + ":" + port + path);
         return (WeatherService) jaxWsFactory.create();
     }
 }
