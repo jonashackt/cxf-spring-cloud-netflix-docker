@@ -17,9 +17,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<rest-assured.version>3.0.5</rest-assured.version>
 		<cxf.version>3.2.0</cxf.version>
-		<springfox.version>2.7.0</springfox.version>
 	</properties>
 
 	<dependencies>
@@ -58,13 +56,11 @@
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
-			<version>${springfox.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger-ui</artifactId>
-			<version>${springfox.version}</version>
 		</dependency>
 
 		<!-- Testing -->
@@ -77,7 +73,6 @@
 		<dependency>
 			<groupId>io.rest-assured</groupId>
 			<artifactId>rest-assured</artifactId>
-			<version>${rest-assured.version}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -92,7 +87,7 @@
 			<plugin>
 				<groupId>de.codecentric</groupId>
 				<artifactId>cxf-spring-boot-starter-maven-plugin</artifactId>
-				<version>1.1.1.RELEASE</version>
+				<version>2.0.0.RELEASE</version>
 				<executions>
 					<execution>
 						<goals>

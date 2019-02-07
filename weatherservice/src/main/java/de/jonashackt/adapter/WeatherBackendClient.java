@@ -2,7 +2,7 @@ package de.jonashackt.adapter;
 
 import de.jonashackt.model.GeneralOutlook;
 import de.jonashackt.model.Weather;
-import org.springframework.cloud.netflix.feign.FeignClient;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
 @FeignClient("weatherbackend")

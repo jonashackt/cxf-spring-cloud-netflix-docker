@@ -21,6 +21,32 @@ Example: http://localhost:8080/api/weatherservice/soap
 There´s a Client application inside this project too, so you can fire requests to the weather-service with that one to - and it should be clear, how to implement a consumer :) For that, just fire up the [weatherclient](https://github.com/jonashackt/cxf-spring-cloud-netflix-docker/tree/master/weatherclient) - it should be right there after a `mvn clean package` ran inside the root directoy.
 
 
+### Spring Cloud 2.x Upgrade
+
+Renamed starters: https://github.com/spring-projects/spring-cloud/wiki/Spring-Cloud-Edgware-Release-Notes
+
+##### Errors bean overriding
+
+```
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The bean 'weatherServiceClient', defined in de.jonashackt.WeatherclientTestApplication, could not be registered. A bean with that name has already been defined in class path resource [de/jonashackt/configuration/WeatherclientConfiguration.class] and overriding is disabled.
+
+```
+
+See https://stackoverflow.com/questions/51367566/trouble-when-changing-spring-boot-version-from-2-0-3-release-to-2-1-0-build-snap, 
+bean overriding (DI) isn't the default behavior anymore and you have to use:
+
+```
+spring.main.allow-bean-definition-overriding: true
+```
+
+inside `src/test/resources/application.yml`.
+
 ### Links
 
 http://projects.spring.io/spring-cloud/

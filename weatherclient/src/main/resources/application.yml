@@ -2,6 +2,8 @@ spring:
   application:
     # sets the name in Eureka & Zipkin
     name: ${springboot.app.name:weatherclient}
+  main:
+    allow-bean-definition-overriding: true
 
 server:
   port: 8087

@@ -14,7 +14,7 @@
 	</parent>
 
 	<properties>
-		<spring-boot-admin.version>1.5.6</spring-boot-admin.version>
+		<spring-boot-admin.version>2.1.2</spring-boot-admin.version>
 	</properties>
 
 	<dependencies>
@@ -33,7 +33,7 @@
 		<!-- Eureka connectivity -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-eureka</artifactId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
 
 	</dependencies>
