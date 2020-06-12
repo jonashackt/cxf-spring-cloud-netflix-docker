@@ -1,6 +1,6 @@
 cxf-spring-cloud-netflix-docker
 ======================================================================================
-[![Build Status](https://travis-ci.org/jonashackt/cxf-spring-cloud-netflix-docker.svg?branch=master)](https://travis-ci.org/jonashackt/cxf-spring-cloud-netflix-docker)
+[![Build Status](https://travis-ci.com/jonashackt/cxf-spring-cloud-netflix-docker.svg?branch=master)](https://travis-ci.com/jonashackt/cxf-spring-cloud-netflix-docker)
 
 ## Example project combining Spring Boot apps together with Spring Cloud Netflix &amp; Docker
 
