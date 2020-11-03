@@ -35,6 +35,8 @@ public class WeatherBackendController {
         ObjectMapper mapper = new ObjectMapper();
         LOG.info("Object as JSON:" + mapper.writeValueAsString(weather));
 
+        LOG.info("GeneralOutlook as JSON: \n " + mapper.writeValueAsString(IncredibleLogic.generateGeneralOutlook()));
+
         return IncredibleLogic.generateGeneralOutlook();
     }
 

@@ -2,13 +2,16 @@ package de.jonashackt;
 
 import de.jonashackt.businesslogic.IncredibleLogic;
 import de.jonashackt.model.*;
+import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import org.apache.http.HttpStatus;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.ByteArrayInputStream;
@@ -22,11 +25,19 @@ import static org.junit.Assert.assertThat;
 @RunWith(SpringRunner.class)
 @SpringBootTest(
         classes = WeatherBackendApplication.class,
-        webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT,
-        properties = {"server.port=8080"}
+        webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
 )
 public class WeatherBackendApplicationTests {
-  
+
+    @LocalServerPort
+    int port;
+
+    @Before
+    public void init() {
+        RestAssured.baseURI = "http://localhost";
+        RestAssured.port = port;
+    }
+
 	@Test
     public void testWithRestAssured() {
 	    
@@ -42,7 +53,7 @@ public class WeatherBackendApplicationTests {
 	        .contentType(ContentType.JSON)
             .body(weather)
         .when() // can be ommited when GET only
-            .post("http://localhost:8080/weather/general/outlook")
+            .post("/weather/general/outlook")
         .then()
             .statusCode(HttpStatus.SC_OK)
             .contentType(ContentType.JSON)
@@ -51,7 +62,7 @@ public class WeatherBackendApplicationTests {
 	    
 	    GeneralOutlook outlook = given() // can be ommited when GET only
 	            .contentType(ContentType.JSON)
-	            .body(weather).post("http://localhost:8080/weather/general/outlook").as(GeneralOutlook.class);
+	            .body(weather).post("/weather/general/outlook").as(GeneralOutlook.class);
 	    
 	    assertEquals("Weimar", outlook.getCity());
     }
@@ -63,7 +74,7 @@ public class WeatherBackendApplicationTests {
                         .contentType(ContentType.JSON)
                         .pathParam("zip", "99425")
                     .when()
-                        .get("http://localhost:8080/weather/general/outlook/{zip}")
+                        .get("/weather/general/outlook/{zip}")
                     .then()
                         .statusCode(HttpStatus.SC_OK).extract().asByteArray();
 
