@@ -7,9 +7,8 @@ import io.restassured.http.ContentType;
 import org.apache.http.HttpStatus;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -18,11 +17,10 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest(
         classes = WeatherBackendApplication.class,
         webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
@@ -32,7 +30,7 @@ public class WeatherBackendApplicationTests {
     @LocalServerPort
     int port;
 
-    @Before
+    @BeforeEach
     public void init() {
         RestAssured.baseURI = "http://localhost";
         RestAssured.port = port;
