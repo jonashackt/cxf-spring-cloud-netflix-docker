@@ -10,7 +10,7 @@
 		<groupId>de.jonashackt</groupId>
 		<artifactId>cxf-spring-cloud-netflix-docker-build-all</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath>../</relativePath>
+		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
@@ -50,15 +50,10 @@
 			<scope>optional</scope>
 		</dependency>
 
-		<!-- Swaggerfox REST Live Docu -->
+		<!-- Swagger REST Live Docu -->
 		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger2</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger-ui</artifactId>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
 		</dependency>
 
 		<!-- Testing -->

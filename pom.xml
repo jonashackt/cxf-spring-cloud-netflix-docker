@@ -20,7 +20,8 @@
 		<java.version>1.8</java.version>
 
 		<!-- Dependency versions used all over the project -->
-		<springfox.version>2.9.2</springfox.version>
+		<spring-cloud-dependencies.version>2020.0.0</spring-cloud-dependencies.version>
+		<springdoc-openapi-ui.version>1.5.0</springdoc-openapi-ui.version>
 		<rest-assured.version>3.3.0</rest-assured.version>
 	</properties>
 
@@ -29,20 +30,15 @@
 			<dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Greenwich.RELEASE</version>
+                <version>${spring-cloud-dependencies.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 
 			<dependency>
-				<groupId>io.springfox</groupId>
-				<artifactId>springfox-swagger2</artifactId>
-				<version>${springfox.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>io.springfox</groupId>
-				<artifactId>springfox-swagger-ui</artifactId>
-				<version>${springfox.version}</version>
+				<groupId>org.springdoc</groupId>
+				<artifactId>springdoc-openapi-ui</artifactId>
+				<version>${springdoc-openapi-ui.version}</version>
 			</dependency>
 
 			<dependency>
@@ -55,7 +51,7 @@
 	</dependencyManagement>
 
 	<modules>
-		<module>eureka-serviceregistry</module>
+<!--		<module>eureka-serviceregistry</module>-->
 		<module>spring-boot-admin</module>
 		<module>zuul-edgeservice</module>
 		<module>weatherbackend</module>

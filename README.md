@@ -4,6 +4,8 @@ cxf-spring-cloud-netflix-docker
 [![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/jonashackt/spring-boot-buildpack/blob/master/LICENSE)
 [![renovateenabled](https://img.shields.io/badge/renovate-enabled-yellow)](https://renovatebot.com)
 
+Spring Boot & Spring Cloud compatibility: https://spring.io/projects/spring-cloud
+
 ## Example project combining Spring Boot apps together with Spring Cloud Netflix &amp; Docker
 
 It was created as a showcase for this blog post: [Scaling Spring Boot Apps on Docker Windows Containers with Ansible: A Complete Guide incl Spring Cloud Netflix and Docker Compose](https://blog.codecentric.de/en/2017/05/ansible-docker-windows-containers-scaling-spring-cloud-netflix-docker-compose/) and is used by this Ansible repository: [ansible-windows-docker-springboot](https://github.com/jonashackt/ansible-windows-docker-springboot)
