@@ -51,7 +51,7 @@
 	</dependencyManagement>
 
 	<modules>
-<!--		<module>eureka-serviceregistry</module>-->
+		<module>eureka-serviceregistry</module>
 		<module>spring-boot-admin</module>
 		<module>zuul-edgeservice</module>
 		<module>weatherbackend</module>

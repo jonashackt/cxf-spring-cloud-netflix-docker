@@ -9,7 +9,6 @@
         <groupId>de.jonashackt</groupId>
         <artifactId>cxf-spring-cloud-netflix-docker-build-all</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <properties>
