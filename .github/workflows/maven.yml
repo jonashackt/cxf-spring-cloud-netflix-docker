@@ -19,7 +19,7 @@ jobs:
 
       - name: Build & run our Apps using Docker-Compose & Paketo.io
         run: |
-          docker-compose -f build.yml up -d
+          docker-compose -f build.yml up
           docker-compose -f build.yml logs
           docker-compose up -d
           docker-compose logs
