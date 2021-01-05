@@ -2,64 +2,57 @@ version: '3.3'
 
 services:
 
- eureka-serviceregistry:
-  build: ./eureka-serviceregistry
-  ports:
-   - "8761:8761"
-  tty:
-    true
-  restart:
-    unless-stopped
+  eureka-serviceregistry:
+    image: eureka-serviceregistry:0.0.1-SNAPSHOT
+    ports:
+     - "8761:8761"
+    tty:
+      true
+    restart:
+      unless-stopped
 
- spring-boot-admin:
-  build: ./spring-boot-admin
-  ports:
-   - "8092:8092"
-  environment:
-    - REGISTRY_HOST=eureka-serviceregistry
-  tty:
-    true
-  restart:
-    unless-stopped
+  spring-boot-admin:
+    image: spring-boot-admin:0.0.1-SNAPSHOT
+    ports:
+     - "8092:8092"
+    environment:
+      - REGISTRY_HOST=eureka-serviceregistry
+    tty:
+      true
+    restart:
+      unless-stopped
 
- # no portbinding here - the actual services should be accessible through Zuul proxy
- weatherbackend:
-  build: ./weatherbackend
-  ports:
-   - "8090"
-  environment:
-    - REGISTRY_HOST=eureka-serviceregistry
-  tty:
-    true
-  restart:
-    unless-stopped
+  # no portbinding here - the actual services should be accessible through Zuul proxy
+  weatherbackend:
+    image: weatherbackend:0.0.1-SNAPSHOT
+    ports:
+     - "8090"
+    environment:
+      - REGISTRY_HOST=eureka-serviceregistry
+    tty:
+      true
+    restart:
+      unless-stopped
 
- # no portbinding here - the actual services should be accessible through Zuul proxy
- weatherservice:
-  build: ./weatherservice
-  ports:
-   - "8095"
-  environment:
-    - REGISTRY_HOST=eureka-serviceregistry
-  tty:
-    true
-  restart:
-    unless-stopped
+  # no portbinding here - the actual services should be accessible through Zuul proxy
+  weatherservice:
+    image: weatherservice:0.0.1-SNAPSHOT
+    ports:
+     - "8095"
+    environment:
+      - REGISTRY_HOST=eureka-serviceregistry
+    tty:
+      true
+    restart:
+      unless-stopped
 
- zuul-edgeservice:
-  build: ./zuul-edgeservice
-  ports:
-   - "8080:8080"
-  environment:
-    - REGISTRY_HOST=eureka-serviceregistry
-  tty:
-    true
-  restart:
-    unless-stopped
-
-# "Windows Docker native"-specific configuration
-
-#networks:
-# default:
-#  external:
-#   name: "nat"
+  zuul-edgeservice:
+    image: zuul-edgeservice:0.0.1-SNAPSHOT
+    ports:
+     - "8080:8080"
+    environment:
+      - REGISTRY_HOST=eureka-serviceregistry
+    tty:
+      true
+    restart:
+      unless-stopped

@@ -1,0 +1,12 @@
+version: '3.3'
+
+services:
+
+  paketo-build:
+    image: maven:3.6-openjdk-15
+    command: "mvn clean spring-boot:build-image -B -DskipTests --no-transfer-progress" # build all apps
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro" # Mount Docker from host into build container for Paketo to work
+      - "$HOME/.m2:/root/.m2" # Mount your local Maven repository into build container to prevent repeated downloads
+      - "$PWD:/workspace" # Mount all Spring Boot apps into the build container
+    working_dir: "/workspace"
