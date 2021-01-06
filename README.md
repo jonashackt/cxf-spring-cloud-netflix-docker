@@ -118,6 +118,14 @@ To always issue a fresh build of all apps before running our apps, simply run:
 docker-compose -f build.yml up && docker-compose up
 ```
 
+Alternative, if we can rely on Maven on the host - we can leave out the first build container:
+
+
+```shell
+mvn clean spring-boot:build-image && docker-compose up
+```
+
+
 
 ### Spring Cloud 2.x Upgrade
 
