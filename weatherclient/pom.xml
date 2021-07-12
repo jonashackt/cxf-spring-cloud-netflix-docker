@@ -13,7 +13,7 @@
 	</parent>
 
 	<properties>
-		<cxf-spring-boot-starter.version>2.4.1</cxf-spring-boot-starter.version>
+		<cxf-spring-boot-starter.version>2.5.0</cxf-spring-boot-starter.version>
 		<cxf-spring-boot-starter-maven-plugin.version>2.3.0.RELEASE</cxf-spring-boot-starter-maven-plugin.version>
 	</properties>
 
