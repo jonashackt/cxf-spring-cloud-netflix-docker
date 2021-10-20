@@ -21,7 +21,7 @@
 
 		<!-- Dependency versions used all over the project -->
 		<spring-cloud-dependencies.version>2020.0.4</spring-cloud-dependencies.version>
-		<springdoc-openapi-ui.version>1.5.11</springdoc-openapi-ui.version>
+		<springdoc-openapi-ui.version>1.5.12</springdoc-openapi-ui.version>
 		<rest-assured.version>4.4.0</rest-assured.version>
 	</properties>
 
