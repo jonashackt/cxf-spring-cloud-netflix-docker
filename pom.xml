@@ -38,13 +38,13 @@
 			<dependency>
 				<groupId>org.springdoc</groupId>
 				<artifactId>springdoc-openapi-ui</artifactId>
-				<version>${springdoc-openapi-ui.version}</version>
+				<version>1.8.0</version>
 			</dependency>
 
 			<dependency>
 				<groupId>io.rest-assured</groupId>
 				<artifactId>rest-assured</artifactId>
-				<version>${rest-assured.version}</version>
+				<version>4.5.1</version>
 				<scope>test</scope>
 			</dependency>
 		</dependencies>
